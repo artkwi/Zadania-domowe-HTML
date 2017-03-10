@@ -1,3 +1,31 @@
-.glowny-naglowek {
-	background-color: #0080F0;
+#div-2 {
+	height: 200px;
+	width: 200px;
+  border-radius: 50%;
+  background-color: white;
+  border: 10px solid #CBCBCB;
+  border-top: 10px solid #9F9F9F;
+	animation: test 3s linear infinite;
+
+}
+
+@keyframes test {
+    100% {
+
+    transition-property: transform;
+    transform:rotateZ(360deg);
+	}
+}
+
+#div-1 {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: white;
+}
+#banan {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: test 2s  infinite;
 }
