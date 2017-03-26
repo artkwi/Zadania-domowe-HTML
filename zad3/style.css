@@ -1,0 +1,60 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 0.2rem solid black;
+  padding: 1rem;
+  height: 15rem;
+}
+
+.box > div {
+  width: 3rem;
+  flex: 1 30%;
+  text-align:center;
+  vertical-align:middle;
+}
+
+.A {
+  background-color: red;
+  order: 3;
+}
+.B {
+  background-color: blue;
+  order: 5;
+}
+.C {
+  background-color: green;
+  order: 2;
+}
+.D {
+  background-color: yellow;
+  order:11;
+}
+.E {
+  background-color: orange;
+  order: 4;
+}
+.F {
+  background-color: purple;
+  order: 7;
+}
+.G {
+  background-color: #00ffcc;
+  order: 9;
+}
+.H {
+  background-color: #ff3399;
+  order: 6;
+}
+.I {
+  background-color: brown;
+  order: 8;
+}
+.J {
+  background-color: grey;
+  order: 1;
+}
+.K {
+  background-color: #ffcccc;
+  order: 10;
+}
