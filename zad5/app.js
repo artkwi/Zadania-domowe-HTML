@@ -9,8 +9,12 @@ today = today + " " + d.getDate();
 today = today + " " + monthsConjugation[d.getMonth()];
 today = today + " " + d.getFullYear() + " r.";
 
+var todayTime = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ":" + d.getMilliseconds();
+
+
 var el1 = document.getElementById('heading');
 el1.innerHTML = "Artur Kwiatkowski";
 
 el1 = document.getElementById('paragraph-one');
-el1.innerHTML = "Data, która pojawi siê przy otwarciu tej strony to: " + today ;
+el1.innerHTML = "Data, która pojawi siê przy otwarciu tej strony to: " + today +
+"<br />Godzina w momencie otwarcia strony: " + todayTime;
