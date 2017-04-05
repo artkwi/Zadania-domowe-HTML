@@ -1,11 +1,46 @@
-.main-header {
-	background-color: #0080F0;
+body {
+	background-color: #2FA5EF
 }
 
-.main-footer {
+div {
+	padding: 1.5rem;
+	margin: 1.5rem;
+}
+
+.border {
+	border: 0.3rem solid #FFFFFF;
+	border-radius: 2rem;	
+}
+
+
+.wrap {
+	background-color: #0C72BD;
+	padding: 2rem;
+
+	
+}
+
+
+.section-1 {
+	background-color: #0D83CA;
+	padding: 2rem;
+}
+
+.tasks {
+	background-color: #1E94DE;
+	padding: 2rem;
 	
 }
 
 .unordered-list {
+	background-color: #0D83CD;
+	padding: 2rem;
+}
+
+.main-header {
+	
+}
+
+.main-footer {
 	
 }
