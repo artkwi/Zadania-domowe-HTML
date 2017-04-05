@@ -20,6 +20,10 @@ span {
 	vertical-align:middle;
 }
 
+.no-center {
+	text-align:left;
+}
+
 .border {
 	border: 0.3rem solid #FFFFFF;
 	border-radius: 2rem;	
@@ -37,6 +41,8 @@ span {
 	background-color: #0D83CA;
 	padding: 2rem;
 	text-align: center;
+	overflow: auto;
+	width:100%;
 }
 
 .tasks {
