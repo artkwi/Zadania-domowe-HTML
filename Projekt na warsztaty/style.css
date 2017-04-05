@@ -5,6 +5,19 @@ body {
 div {
 	padding: 1.5rem;
 	margin: 1.5rem;
+	
+	
+}
+
+span {
+	text-align: center;
+	width: 45%;
+	margin: 2rem;
+	float: left;
+}
+.center {
+	text-align:center;
+	vertical-align:middle;
 }
 
 .border {
@@ -17,13 +30,13 @@ div {
 	background-color: #0C72BD;
 	padding: 2rem;
 
-	
 }
 
 
 .section-1 {
 	background-color: #0D83CA;
 	padding: 2rem;
+	text-align: center;
 }
 
 .tasks {
