@@ -20,3 +20,26 @@ function addElement() {
 	console.log('Działa!');
 }
 
+
+function reload() {
+		positiontList = document.querySelectorAll('.unordered-list li');
+		console.log(positiontList);
+		var i = 0;
+		for (i = 0; i< positiontList.length ; i++) {
+			positiontList[i].Id = i;
+			positiontList[i].firstChild.nextSibling.addEventListener('click',removeElement,false);
+			console.log(positiontList[i].firstChild.nextSibling);
+			console.log(positiontList[i].Id);
+		}
+		console.log(positiontList);
+}
+
+
+
+function removeElement (e) {
+	var positionThisButton = e.target.Id;
+	positiontList[positionThisButton].parentNode.removeChild(positiontList[positionThisButton]);
+	
+}
+
+reload();
