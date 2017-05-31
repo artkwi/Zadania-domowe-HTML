@@ -2,7 +2,6 @@
 var arrayObjects = [];
 var listGet = document.querySelectorAll('.unordered-list li');
 var listGetParent = document.querySelector('.unordered-list');
-console.log(listGetParent);
 
 // dodanie nas³uchu na przycisk
 var elementAddButton = document.querySelector('button');
@@ -15,12 +14,9 @@ function addElement() {
 	// zapisanie zadania do tablicy obiektów
 	arrayObjects.push({
 		content: taskContent[0].value,
-		isDone: false					//*
+		isDone: false
 	});
 	
-	
-	//console.log(listGet[0].firstChild.firstChild);
-	//console.log(listGet[0].firstChild.nextSibling);
 	reloadElements();
 }
 
@@ -41,9 +37,8 @@ function reloadElements() {
 		removeButton.setAttribute("type", "Button");
 		removeButton.setAttribute("value", "Usuñ");
 		checkBox.setAttribute("type", "checkbox");
-		//console.log(arrayObjects[i].isDone);
 		checkBox.checked = arrayObjects[i].isDone;
-		//checkBox.setAttribute("checked", arrayObjects[i].isDone) // *
+		//checkBox.setAttribute("checked", arrayObjects[i].isDone) - ten zapis nie dzia³a³ poprawnie
 		checkBox.setAttribute("id", i);
 		liElement.appendChild(removeButton);
 		liElement.appendChild(checkBox);
@@ -67,5 +62,5 @@ function removeElement(event) {
 function checkBoxFunction(event) {
 	var target = event.target;
 	arrayObjects[target.id].isDone = target.checked;
-	console.table(arrayObjects);	// * przed pierwszysm klikniêciem w checkbox wartoœci nie s¹ poprawne
+	console.table(arrayObjects);	
 }

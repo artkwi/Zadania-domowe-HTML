@@ -1,49 +1,68 @@
-﻿var ArrayObjects [];
+﻿// Obiekty globalne
+var arrayObjects = [];
+var listGet = document.querySelectorAll('.unordered-list li');
+var listGetParent = document.querySelector('.unordered-list');
 
-
-
+// dodanie nasłuchu na przycisk
 var elementAddButton = document.querySelector('button');
-elementAddButton.addEventListener('click',addElement,false);
+var textAreaField = document.getElementsByName('text-zadanie');
+elementAddButton.addEventListener('click', addElement, false);
+textAreaField[0].addEventListener('keypress', function(event) {if (event.keyCode == 13) addElement()}, false);
 
+// dodawanie zadania
 function addElement() {
-	var positiontList = document.querySelector(".unordered-list");
-	var newElementLi = document.createElement('li');
-	var newElementButton = document.createElement('button');
-	var newTextButton = document.createTextNode('Usuń');
-	var newElementCheckbox = document.createElement('input');
-	newElementCheckbox.type = "checkbox";
-	var newElementTextBox = document.getElementsByName('text-zadanie');
-	var newText = document.createTextNode(newElementTextBox[0].value);
-	//console.log(newElementTextBox[0].value);
+	var taskContent = document.getElementsByName('text-zadanie');
+	if (taskContent[0].value != "") {
+	// zapisanie zadania do tablicy obiektów
+	arrayObjects.push({
+		content: taskContent[0].value,
+		isDone: false
+	});
 	
-	newElementLi.appendChild(newElementButton);
-	newElementLi.appendChild(newElementCheckbox);
-	newElementButton.appendChild(newTextButton);
-	positiontList.appendChild(newElementLi);
-	newElementLi.appendChild(newText);
-	console.log('Działa!');
+	reloadElements();
+	}
+	else alert("Nie podałeś treści zadania!");
 }
 
-
-function reload() {
-		positiontList = document.querySelectorAll('.unordered-list li');
-		console.log(positiontList);
-		var i = 0;
-		for (i = 0; i< positiontList.length ; i++) {
-			positiontList[i].Id = i;
-			positiontList[i].firstChild.nextSibling.addEventListener('click',removeElement,false);
-			console.log(positiontList[i].firstChild.nextSibling);
-			console.log(positiontList[i].Id);
-		}
-		console.log(positiontList);
-}
-
-
-
-function removeElement (e) {
-	var positionThisButton = e.target.Id;
-	positiontList[positionThisButton].parentNode.removeChild(positiontList[positionThisButton]);
+// usunięcie i ponowne załadowanie elementów
+function reloadElements() {
+	// usunięcie elementów z ekranu
+	while (listGetParent.hasChildNodes()) {
+		listGetParent.removeChild(listGetParent.firstChild);
+	}
 	
+	// dodanie elementów z tablicy na ekranu
+	for (var i=0 ; i<arrayObjects.length ; i++) {
+		var liElement 		= document.createElement('li');
+		var removeButton 	= document.createElement('input');
+		var checkBox		= document.createElement('input');
+		var textNode		= document.createTextNode(arrayObjects[i].content);
+		removeButton.setAttribute("id", i)
+		removeButton.setAttribute("type", "Button");
+		removeButton.setAttribute("value", "Usuń");
+		checkBox.setAttribute("type", "checkbox");
+		checkBox.checked = arrayObjects[i].isDone;
+		//checkBox.setAttribute("checked", arrayObjects[i].isDone) - ten zapis nie działał poprawnie
+		checkBox.setAttribute("id", i);
+		liElement.appendChild(removeButton);
+		liElement.appendChild(checkBox);
+		liElement.appendChild(textNode);
+		listGetParent.appendChild(liElement);
+		
+		removeButton.addEventListener('click',removeElement,false);
+		checkBox.addEventListener('click',checkBoxFunction,false);
+	}
 }
 
-reload();
+// usuwanie elementów 
+function removeElement(event) {
+	var target = event.target;
+	arrayObjects.splice(target.id,1);
+	reloadElements();
+}
+
+function checkBoxFunction(event) {
+	var target = event.target;
+	arrayObjects[target.id].isDone = target.checked;
+	console.table(arrayObjects);	
+}
