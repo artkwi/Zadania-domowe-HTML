@@ -9,13 +9,20 @@ var textAreaField = document.getElementsByName('text-zadanie');
 elementAddButton.addEventListener('click', addElement, false);
 textAreaField[0].addEventListener('keypress', function(event) {if (event.keyCode == 13) addElement()}, false);
 
+// aktualna data
+var arrayMonths = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"];
+var date = new Date();
+var textDate = date.getDate() + " " + arrayMonths[date.getMonth()] + " " + date.getFullYear() + " roku";
+var datePlace = document.getElementById('date');
+datePlace.innerHTML = textDate;
+
 // dodawanie zadania
 function addElement() {
 	var taskContent = document.getElementsByName('text-zadanie');
 	if (taskContent[0].value != "") {
 	// zapisanie zadania do tablicy obiektów
 	arrayObjects.push({
-		content: taskContent[0].value,
+		content: taskContent[0].value.replace(/\s+/g, '');	// usunięcie spacji
 		isDone: false
 	});
 	
