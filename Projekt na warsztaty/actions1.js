@@ -29,7 +29,7 @@ function reloadElements() {
 	// usuniêcie elementów z ekranu
 	while (listGetParent.hasChildNodes()) {
 		listGetParent.removeChild(listGetParent.firstChild);
-		console.log("kot");
+		//console.log("kot");
 	}
 	
 	// dodanie elementów z tablicy na ekranu
@@ -38,6 +38,7 @@ function reloadElements() {
 		var removeButton 	= document.createElement('input');
 		var checkBox		= document.createElement('input');
 		var textNode		= document.createTextNode(arrayObjects[i].content);
+		removeButton.setAttribute("id", i)
 		removeButton.setAttribute("type", "Button");
 		removeButton.setAttribute("value", "Usuñ");
 		checkBox.setAttribute("type", "checkbox");
@@ -46,7 +47,16 @@ function reloadElements() {
 		liElement.appendChild(textNode);
 		listGetParent.appendChild(liElement);
 		
-		
+		removeButton.addEventListener('click',removeElement,false);
 	}
 }
-//listGet = document.querySelectorAll('.unordered-list li');
+
+// usuwanie elementów 
+function removeElement(event) {
+	var target = event.target;
+	//console.log(target.id);
+	arrayObjects.splice(target.id);
+	console.log(arrayObjects);
+	reloadElements();
+}
+
