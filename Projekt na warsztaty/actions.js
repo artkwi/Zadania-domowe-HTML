@@ -1,4 +1,8 @@
-﻿var elementAddButton = document.querySelector('button');
+﻿var ArrayObjects [];
+
+
+
+var elementAddButton = document.querySelector('button');
 elementAddButton.addEventListener('click',addElement,false);
 
 function addElement() {
